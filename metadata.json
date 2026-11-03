@@ -1,0 +1,6 @@
+{
+  "name": "Edicto Imperial: Viaje Sorpresa a Mérida",
+  "description": "Página de revelación de viaje sorpresa con temática del Imperio Romano a Emérita Lvdica para Marcos Prato.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

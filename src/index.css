@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --burgundy: #6b0f1a;
+    --burgundy-dark: #3f0910;
+    --gold: #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-dark: #aa8214;
+    --parchment: #fbf7ee;
+    --parchment-dark: #f0e6d2;
+    --charcoal: #1f1f1f;
+  }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background-color: #12080a;
+    color: #1f1f1f;
+  }
+
+  h1, h2, h3, h4, .font-cinzel {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.04em;
+  }
+
+  .font-lora {
+    font-family: 'Lora', Georgia, serif;
+  }
+}
+
+/* Custom Roman ornamentation and foil effects */
+.gold-foil-border {
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.25), inset 0 0 12px rgba(212, 175, 55, 0.15);
+}
+
+.gold-foil-text {
+  background: linear-gradient(135deg, #f7ecc5 0%, #d4af37 50%, #aa8214 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.parchment-texture {
+  background-color: #fbf7ee;
+  background-image: radial-gradient(#e8ddc7 1px, transparent 1px), radial-gradient(#efe7d5 1px, #fbf7ee 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.parchment-border {
+  border: 1px solid #d4af37;
+  box-shadow: inset 0 0 25px rgba(107, 15, 26, 0.08), 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+}
+
+/* Roman meander pattern border simulation */
+.roman-pattern {
+  background-image: repeating-linear-gradient(45deg, rgba(212,175,55,0.12) 0, rgba(212,175,55,0.12) 2px, transparent 0, transparent 8px);
+}
+
+@keyframes imperialPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 0 30px rgba(107, 15, 26, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.7), 0 0 45px rgba(212, 175, 55, 0.4);
+    transform: scale(1.02);
+  }
+}
+
+.animate-imperial-glow {
+  animation: imperialPulse 2.4s infinite ease-in-out;
+}

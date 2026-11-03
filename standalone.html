@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edicto Imperial: Viaje Sorpresa a Mérida</title>
+  <meta name="description" content="Página de revelación de viaje sorpresa con temática del Imperio Romano a Emérita Lvdica para Marcos Prato.">
+  <meta property="og:title" content="Edicto Imperial: Viaje Sorpresa a Mérida">
+  <meta property="og:description" content="Página de revelación de viaje sorpresa con temática del Imperio Romano a Emérita Lvdica para Marcos Prato.">
+  
+  <!-- Google Fonts: Cinzel & Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: '#6b0f1a',
+            'burgundy-dark': '#3f0910',
+            gold: '#d4af37',
+            'gold-light': '#f3e5ab',
+            'gold-dark': '#aa8214',
+            parchment: '#fbf7ee',
+            'parchment-dark': '#f0e6d2',
+            charcoal: '#1f1f1f',
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            lora: ['Lora', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background-color: #0e0708;
+      color: #1f1f1f;
+    }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.04em;
+    }
+    .parchment-texture {
+      background-color: #fbf7ee;
+      background-image: radial-gradient(#e5d7bc 0.8px, transparent 0.8px), radial-gradient(#ede3cf 0.8px, #fbf7ee 0.8px);
+      background-size: 16px 16px;
+      background-position: 0 0, 8px 8px;
+    }
+    @keyframes imperialGlow {
+      0%, 100% {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 0 30px rgba(107, 15, 26, 0.3);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.7), 0 0 45px rgba(212, 175, 55, 0.4);
+        transform: scale(1.02);
+      }
+    }
+    .animate-glow {
+      animation: imperialGlow 2.4s infinite ease-in-out;
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(32px) scale(0.97);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0e0708] bg-[radial-gradient(circle_at_top,#2a080e_0%,#0e0708_70%)] py-4 px-3 sm:px-4 flex flex-col items-center justify-start text-[#1f1f1f]">
+
+  <!-- Top Bar -->
+  <div class="w-full max-w-md flex items-center justify-between px-3 py-2 text-xs font-cinzel text-[#d4af37] border-b border-[#d4af37]/20 mb-3">
+    <span class="flex items-center gap-1.5 tracking-widest uppercase">
+      <span class="w-2 h-2 rounded-full bg-[#d4af37]/80 inline-block"></span>
+      ANNO MMXXVI · EMERITA
+    </span>
+    <span class="text-[11px] font-cinzel text-[#d4af37]/80">EDICTO PRIVADO</span>
+  </div>
+
+  <!-- Outer Container (Mobile-First max-w-md) -->
+  <main class="w-full max-w-md flex flex-col gap-5 pb-16">
+
+    <!-- 1. HERO SECTION: EL EDICTO IMPERIAL -->
+    <section class="relative parchment-texture rounded-2xl p-5 sm:p-6 shadow-2xl border-2 border-[#d4af37] overflow-hidden" style="box-shadow: 0 20px 40px -10px rgba(0,0,0,0.7), inset 0 0 40px rgba(107,15,26,0.06);">
+      <!-- Gold accents top & bottom -->
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#aa8214] via-[#f3e5ab] to-[#aa8214] opacity-80"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#aa8214] via-[#f3e5ab] to-[#aa8214] opacity-80"></div>
+
+      <!-- Corner Flourishes -->
+      <div class="absolute top-3 left-3 text-[#aa8214] text-xs opacity-60">❖</div>
+      <div class="absolute top-3 right-3 text-[#aa8214] text-xs opacity-60">❖</div>
+      <div class="absolute bottom-3 left-3 text-[#aa8214] text-xs opacity-60">❖</div>
+      <div class="absolute bottom-3 right-3 text-[#aa8214] text-xs opacity-60">❖</div>
+
+      <!-- SPQR Imperial Engraved Seal -->
+      <div class="flex flex-col items-center text-center pt-2 mb-4">
+        <div class="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#6b0f1a] to-[#3f0910] border-2 border-[#d4af37] flex flex-col items-center justify-center shadow-lg">
+          <div class="absolute inset-1 rounded-full border border-dashed border-[#d4af37]/60"></div>
+          <span class="font-cinzel text-xs font-bold text-[#d4af37] tracking-widest">S·P·Q·R</span>
+          <span class="text-[9px] text-[#f3e5ab] uppercase font-cinzel">AVG·EMERITA</span>
+        </div>
+        <div class="h-0.5 w-24 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mt-3 mb-1"></div>
+        <span class="font-cinzel text-[11px] font-semibold tracking-[0.25em] text-[#6b0f1a] uppercase">
+          Senatvs Popvlvsqve Romanvs
+        </span>
+      </div>
+
+      <!-- Title (Cinzel) -->
+      <div class="text-center mb-4">
+        <h1 class="font-cinzel text-xl sm:text-2xl font-black text-[#6b0f1a] leading-tight">
+          EDICTO IMPERIAL:
+          <span class="block text-base sm:text-lg text-[#aa8214] font-bold mt-1">
+            CONVOCATORIA SECRETA
+          </span>
+        </h1>
+      </div>
+
+      <!-- Body -->
+      <div class="space-y-3 font-lora text-[15px] sm:text-[16px] text-[#2c2224] leading-relaxed text-justify px-1">
+        <p>
+          Por orden superior del <strong class="font-cinzel text-[#6b0f1a]">Senado y la Presidencia</strong>, el ciudadano <strong class="font-cinzel text-[#6b0f1a] tracking-wide text-base">MARCOS PRATO</strong> ha sido citado para una misión imperdible. Para descubrir tu destino, debes interpretar las pistas...
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div class="flex items-center justify-center gap-2 my-4 text-[#d4af37]">
+        <div class="h-[1px] w-12 bg-[#d4af37]"></div>
+        <span class="text-xs font-cinzel">✦ · 🏛️ · ✦</span>
+        <div class="h-[1px] w-12 bg-[#d4af37]"></div>
+      </div>
+
+      <div class="flex justify-between items-end pt-2 text-[11px] font-cinzel text-[#826e58] border-t border-[#d4af37]/30">
+        <span>REGISTRO: IMP·LV-2026</span>
+        <span class="text-[#6b0f1a] font-bold">CONFIDENCIAL</span>
+      </div>
+    </section>
+
+    <!-- 2. CLUES SECTION (3 Sequential Cards with Scroll Reveal) -->
+    <section class="flex flex-col gap-3">
+      <div class="flex items-center justify-between px-1">
+        <h2 class="font-cinzel text-xs uppercase tracking-widest text-[#d4af37] font-semibold flex items-center gap-1.5">
+          <span>📜</span>
+          Pistas del Enigma Imperial
+        </h2>
+        <span class="text-[11px] font-cinzel text-[#d4af37]/70">Pistas 1, 2 y 3</span>
+      </div>
+
+      <!-- PISTA 1 -->
+      <div class="scroll-reveal bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border border-[#d4af37]/40 shadow-md" style="transition-delay: 100ms;">
+        <div class="flex items-start gap-3">
+          <div class="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
+            🏛️
+          </div>
+          <div class="flex-1">
+            <span class="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider block">
+              PISTA 1 · EL SALTO TEMPORAL
+            </span>
+            <p class="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
+              "Viajaremos más de 2.000 años atrás en el tiempo, a una época de gladiadores, aurigas y césares."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PISTA 2 -->
+      <div class="scroll-reveal bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border border-[#d4af37]/40 shadow-md" style="transition-delay: 250ms;">
+        <div class="flex items-start gap-3">
+          <div class="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
+            🍷
+          </div>
+          <div class="flex-1">
+            <span class="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider block">
+              PISTA 2 · LA CELEBRACIÓN VIVA
+            </span>
+            <p class="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
+              "No es un museo... es una ciudad entera vestida de época donde la gente vive, bebe y celebra como verdaderos romanos."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PISTA 3 -->
+      <div class="scroll-reveal bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border border-[#d4af37]/40 shadow-md" style="transition-delay: 400ms;">
+        <div class="flex items-start gap-3">
+          <div class="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
+            🥓
+          </div>
+          <div class="flex-1">
+            <span class="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider block">
+              PISTA 3 · GASTRONOMÍA & MONUMENTOS
+            </span>
+            <p class="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
+              "Tierra de majestuosos acueductos, templos de diosas y el mejor tapeo extremeño."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. REVEAL BUTTON & INTERACTION -->
+    <section id="revealSection" class="pt-2 transition-all duration-500">
+      <button
+        id="revealBtn"
+        onclick="revealDestination()"
+        class="w-full relative overflow-hidden rounded-xl bg-gradient-to-r from-[#801220] via-[#aa192b] to-[#6b0f1a] text-[#fbf7ee] py-4 px-5 border-2 border-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.35)] active:scale-95 transition-all duration-200 cursor-pointer animate-glow"
+      >
+        <div class="flex items-center justify-center gap-2 font-cinzel text-base sm:text-lg font-black tracking-wider text-[#fbf7ee]">
+          <span class="text-xl">🏛️</span>
+          <span>DESVELAR MI DESTINO IMPERIAL</span>
+          <span class="text-xl">✨</span>
+        </div>
+        <div class="text-center font-lora italic text-[11px] text-[#f3e5ab]/80 mt-0.5">
+          Toca para romper el sello del Senado
+        </div>
+      </button>
+    </section>
+
+    <!-- 4. UNHIDDEN REVEAL CONTAINER (Hidden by default) -->
+    <div id="revealContainer" class="hidden opacity-0 flex flex-col gap-6 transition-all duration-700 ease-out mt-2">
+      
+      <!-- Main Headline -->
+      <div class="text-center relative py-3">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/40 mb-2">
+          <span class="text-xs font-cinzel tracking-widest text-[#d4af37] font-semibold uppercase">
+            ✦ Gran Revelación ✦
+          </span>
+        </div>
+        <h2 class="font-cinzel text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#f7ecc5] via-[#d4af37] to-[#f3e5ab] leading-tight">
+          ¡NOS VAMOS A EMÉRITA LVDICA! 🏛️✨
+        </h2>
+        <p class="font-cinzel text-sm sm:text-base text-[#d4af37]/90 tracking-wide mt-1">
+          Destino: <span class="font-bold text-white">Mérida</span> (Extremadura)
+        </p>
+      </div>
+
+      <!-- TICKET / VIP PASS CARD (Gold embossed border) -->
+      <div class="relative bg-[#fbf7ee] rounded-2xl border-2 border-[#d4af37] shadow-[0_15px_35px_rgba(0,0,0,0.6)] overflow-hidden">
+        <div class="bg-gradient-to-r from-[#6b0f1a] via-[#8c1423] to-[#6b0f1a] text-[#f3e5ab] px-4 py-3 flex items-center justify-between border-b-2 border-[#d4af37]">
+          <span class="text-base font-cinzel font-bold tracking-widest">
+            PASE VIP IMPERIAL
+          </span>
+          <span class="font-cinzel text-xs text-[#d4af37] border border-[#d4af37]/40 rounded px-2 py-0.5">
+            Nº 1986-2026
+          </span>
+        </div>
+
+        <div class="p-5 space-y-4 font-lora">
+          <!-- Fechas -->
+          <div class="flex items-start gap-3">
+            <span class="text-xl">📅</span>
+            <div>
+              <span class="block font-cinzel text-xs font-bold uppercase text-[#6b0f1a] tracking-wider">FECHAS</span>
+              <span class="text-base font-semibold text-[#1f1f1f]">Del viernes 14 de mayo al domingo 16 de mayo</span>
+            </div>
+          </div>
+
+          <!-- Alojamiento -->
+          <div class="flex items-start gap-3">
+            <span class="text-xl">🏨</span>
+            <div>
+              <span class="block font-cinzel text-xs font-bold uppercase text-[#6b0f1a] tracking-wider">ALOJAMIENTO</span>
+              <span class="text-base font-semibold text-[#1f1f1f]">Hotel Velada Mérida</span>
+              <span class="block text-xs text-[#524436]">Avda. Reina Sofía, s/n, Mérida</span>
+            </div>
+          </div>
+
+          <!-- Evento -->
+          <div class="flex items-start gap-3">
+            <span class="text-xl">🎭</span>
+            <div>
+              <span class="block font-cinzel text-xs font-bold uppercase text-[#6b0f1a] tracking-wider">EVENTO</span>
+              <span class="text-base font-semibold text-[#1f1f1f]">XVI Emerita Lvdica (Recreación Histórica Romana)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 💌 DECRETO DEL AMOR (Sección Romántica) -->
+      <div class="relative bg-gradient-to-br from-[#2a070e] via-[#1f060a] to-[#25080f] rounded-2xl p-5 sm:p-6 border-2 border-[#d4af37] shadow-[0_15px_30px_rgba(0,0,0,0.6)] overflow-hidden">
+        <div class="text-center mb-3">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/40 mb-2">
+            <span class="text-xs">❤️</span>
+            <span class="text-[10px] font-cinzel font-bold text-[#f3e5ab] tracking-widest uppercase">
+              DECRETO DE LA DIOSA VENUS
+            </span>
+            <span class="text-xs">❤️</span>
+          </div>
+          <h3 class="font-cinzel text-lg sm:text-xl font-bold text-[#f3e5ab] leading-snug">
+            CON LA BENDICIÓN DE JÚPITER
+          </h3>
+        </div>
+
+        <div class="relative p-4 rounded-xl bg-[#120407]/70 border border-[#d4af37]/30 shadow-inner">
+          <span class="absolute top-2 left-2 text-[#d4af37]/40 font-serif text-3xl leading-none">“</span>
+          <p class="font-lora italic text-sm sm:text-[15px] text-[#fbf7ee] leading-relaxed text-center px-3 pt-1">
+            Por decreto de la Diosa Venus y con la bendición de Júpiter, este viaje no solo es para conquistar una ciudad, sino para celebrar tu cumpleaños y festejar que tras todo este tiempo sigo eligiéndote como mi gladiador favorito. ¡Feliz Cumpleaños mi amor!
+          </p>
+          <span class="absolute bottom-1 right-2 text-[#d4af37]/40 font-serif text-3xl leading-none">”</span>
+        </div>
+      </div>
+
+      <!-- MAPS SECTION: TU HOGAR IMPERIAL Y MAPA DE CONQUISTA -->
+      <section class="space-y-4">
+        <div class="text-center px-2">
+          <h3 class="font-cinzel text-lg sm:text-xl font-bold text-[#d4af37] tracking-wider">
+            TU HOGAR IMPERIAL Y MAPA DE CONQUISTA
+          </h3>
+          <p class="font-lora text-xs sm:text-sm text-[#fbf7ee]/80 mt-1">
+            Estratégicamente ubicado para recorrer todos los foros y monumentos
+          </p>
+        </div>
+
+        <!-- CARD 1: Hotel Velada Mérida -->
+        <div class="bg-[#1f0b0f] rounded-2xl border-2 border-[#d4af37]/80 overflow-hidden shadow-xl">
+          <div class="p-3 sm:p-4 bg-gradient-to-r from-[#3f0910] to-[#25060a] border-b border-[#d4af37]/40 flex items-center justify-between">
+            <div>
+              <span class="font-cinzel text-[11px] text-[#d4af37] font-semibold tracking-wider block">CARD 1 · BASE DE OPERACIONES</span>
+              <h4 class="font-cinzel text-base font-bold text-white">Hotel Velada Mérida</h4>
+            </div>
+            <span class="text-[10px] font-cinzel bg-[#d4af37]/20 text-[#f3e5ab] px-2 py-0.5 rounded border border-[#d4af37]/40">4 ESTRELLAS</span>
+          </div>
+
+          <!-- Foto exterior real del hotel (image_11a4be2e.png) -->
+          <div class="relative cursor-pointer group overflow-hidden bg-black aspect-video max-h-64 border-b border-[#d4af37]/30" onclick="openModal('/public/assets/aistudio/image_11a4be2e.png', 'Hotel Velada Mérida · Piscina y Terraza')">
+            <img src="/public/assets/aistudio/image_11a4be2e.png" alt="Hotel Velada Mérida con piscina exterior y terraza iluminada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex items-end justify-between p-3">
+              <span class="text-white text-xs font-semibold text-[#f3e5ab]">Hotel Velada Mérida</span>
+              <span class="bg-[#6b0f1a]/90 text-[#f3e5ab] text-[11px] font-cinzel px-2.5 py-1 rounded border border-[#d4af37]">Ver foto</span>
+            </div>
+          </div>
+
+          <!-- Plano del perímetro con el pin rojo (image_0a54ec44.png) -->
+          <div class="relative cursor-pointer group overflow-hidden bg-[#12080a] p-2" onclick="openModal('/public/assets/aistudio/image_0a54ec44.png', 'Plano Perímetro Emerita Lvdica y Hotel Velada')">
+            <div class="relative rounded-xl overflow-hidden border border-[#d4af37]/40 bg-black">
+              <img src="/public/assets/aistudio/image_0a54ec44.png" alt="Plano perímetro Emerita Lvdica con pin rojo de Hotel Velada" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end justify-between p-3 pointer-events-none">
+                <span class="text-white text-xs font-semibold text-[#f3e5ab]">Plano de Situación</span>
+                <span class="bg-[#6b0f1a]/90 text-[#f3e5ab] text-[11px] font-cinzel px-2.5 py-1 rounded border border-[#d4af37]">Ampliar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 space-y-3 bg-[#19070a]">
+            <div class="space-y-2 text-xs font-lora">
+              <div class="flex items-start gap-2 text-[#fbf7ee]">
+                <span class="w-3.5 h-3.5 rounded-full bg-[#70a83b] inline-block mt-0.5 shrink-0 border border-white/50"></span>
+                <span class="leading-snug">
+                  <strong class="text-[#f3e5ab] font-cinzel">Zona verde delimitada:</strong> Perímetro oficial de Emerita Lvdica con actividades y monumentos.
+                </span>
+              </div>
+              <div class="flex items-start gap-2 text-[#fbf7ee]">
+                <span class="text-base leading-none shrink-0">📍</span>
+                <span class="leading-snug">
+                  <strong class="text-[#f3e5ab] font-cinzel">Chincheta / Pin rojo:</strong> Localización del <strong class="text-white">Hotel Velada Mérida</strong>, a pasos del centro.
+                </span>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-[#d4af37]/20">
+              <p class="text-xs text-[#fbf7ee]/75 font-lora mb-3">
+                <strong>Dirección:</strong> Avda. Reina Sofía, s/n, 06800 Mérida, Badajoz.
+              </p>
+              <a href="https://maps.google.com/?q=Hotel+Velada+Merida" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-[#d4af37] via-[#f3e5ab] to-[#aa8214] text-[#12080a] font-cinzel text-xs font-bold tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg">
+                <span>📍 Abrir en Google Maps</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 🧳 SECCIÓN: EQUIPAJE DEL LEGIONARIO (Módulo Práctico) -->
+      <section class="bg-[#1f0b0f] rounded-2xl border-2 border-[#d4af37]/80 overflow-hidden shadow-xl">
+        <div onclick="toggleLuggageAccordion()" class="p-4 bg-gradient-to-r from-[#3f0910] to-[#25060a] border-b border-[#d4af37]/40 flex items-center justify-between cursor-pointer">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🧳</span>
+            <div>
+              <h3 class="font-cinzel text-sm sm:text-base font-bold text-white tracking-wider">
+                EQUIPAJE DEL LEGIONARIO
+              </h3>
+              <span class="text-[11px] font-lora text-[#f3e5ab]/80">Módulo práctico / Desplegable</span>
+            </div>
+          </div>
+          <span id="accordionIcon" class="text-[#d4af37] font-bold text-sm">▲</span>
+        </div>
+
+        <div id="luggageContent" class="p-4 space-y-2.5 bg-[#170609]">
+          <p class="text-xs font-lora text-[#fbf7ee]/70 italic mb-2">
+            Pertrechos recomendados para el viaje:
+          </p>
+
+          <div onclick="toggleCheckItem(this)" class="p-3 rounded-xl border border-[#d4af37]/30 bg-[#22070c] flex items-start gap-3 cursor-pointer transition-colors">
+            <input type="checkbox" class="mt-1 accent-[#d4af37] w-4 h-4 cursor-pointer">
+            <div>
+              <span class="font-cinzel text-xs font-bold text-[#f3e5ab] block">Túnica / Toga romana</span>
+              <span class="font-lora text-xs text-[#fbf7ee]/80">(o ropa cómoda en tonos neutros si preferís improvisar allí)</span>
+            </div>
+          </div>
+
+          <div onclick="toggleCheckItem(this)" class="p-3 rounded-xl border border-[#d4af37]/30 bg-[#22070c] flex items-start gap-3 cursor-pointer transition-colors">
+            <input type="checkbox" class="mt-1 accent-[#d4af37] w-4 h-4 cursor-pointer">
+            <div>
+              <span class="font-cinzel text-xs font-bold text-[#f3e5ab] block">Calzado cómodo</span>
+              <span class="font-lora text-xs text-[#fbf7ee]/80">Para patear calzadas romanas de piedra.</span>
+            </div>
+          </div>
+
+          <div onclick="toggleCheckItem(this)" class="p-3 rounded-xl border border-[#d4af37]/30 bg-[#22070c] flex items-start gap-3 cursor-pointer transition-colors">
+            <input type="checkbox" class="mt-1 accent-[#d4af37] w-4 h-4 cursor-pointer">
+            <div>
+              <span class="font-cinzel text-xs font-bold text-[#f3e5ab] block">Gafas de sol y crema solar</span>
+              <span class="font-lora text-xs text-[#fbf7ee]/80">¡El sol extremeño aprieta en mayo!</span>
+            </div>
+          </div>
+
+          <div onclick="toggleCheckItem(this)" class="p-3 rounded-xl border border-[#d4af37] bg-[#2f0a12] flex items-start gap-3 cursor-pointer transition-colors">
+            <input type="checkbox" checked class="mt-1 accent-[#d4af37] w-4 h-4 cursor-pointer">
+            <div>
+              <span class="font-cinzel text-xs font-bold text-[#f3e5ab] block">Muchas ganas de pasarlo bien</span>
+              <span class="font-lora text-xs text-[#fbf7ee]/80">Espíritu gladiador y muchas risas juntos.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 🎟️ SECCIÓN: TESSERA HOSPITALIS (Vales Románticos del Viaje) -->
+      <section class="bg-gradient-to-br from-[#25080e] to-[#18060a] rounded-2xl p-5 border-2 border-[#d4af37] shadow-xl">
+        <div class="text-center mb-4">
+          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/40 mb-1">
+            <span class="text-xs">🎟️</span>
+            <span class="text-[10px] font-cinzel font-bold text-[#f3e5ab] uppercase tracking-wider">
+              PACTVM ROMANTICVM
+            </span>
+          </div>
+          <h3 class="font-cinzel text-lg font-bold text-[#f3e5ab] tracking-wider">
+            TESSERA HOSPITALIS
+          </h3>
+          <p class="font-lora text-xs text-[#fbf7ee]/75">
+            Vales románticos canjeables durante nuestra expedición a Mérida
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Vale 1: Helado -->
+          <div id="voucherHelado" class="relative bg-[#fbf7ee] rounded-xl border-2 border-[#d4af37] p-4 text-[#1f1f1f] shadow-md overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-cinzel text-[10px] font-bold text-[#6b0f1a] uppercase tracking-wider">VALE OFICIAL I</span>
+                <span class="text-xl">🍦</span>
+              </div>
+              <h4 class="font-cinzel text-sm font-bold text-[#6b0f1a] leading-snug">Vale por un helado</h4>
+              <p class="font-lora text-xs text-[#4a393d] mt-1">
+                Pagado por la Centuriona en las mejores heladerías de Mérida.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#d4af37]/40">
+              <button onclick="redeemCoupon('voucherHelado', '🍦 CANJEADO POR MARCOS')" class="w-full py-1.5 px-3 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#aa8214] text-[#12080a] font-cinzel text-xs font-bold hover:brightness-110 active:scale-95 transition-all shadow">
+                CANJEAR VALE 🍦
+              </button>
+            </div>
+          </div>
+
+          <!-- Vale 2: Chupachups -->
+          <div id="voucherChupa" class="relative bg-[#fbf7ee] rounded-xl border-2 border-[#d4af37] p-4 text-[#1f1f1f] shadow-md overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-cinzel text-[10px] font-bold text-[#6b0f1a] uppercase tracking-wider">VALE OFICIAL II</span>
+                <span class="text-xl">🍭</span>
+              </div>
+              <h4 class="font-cinzel text-sm font-bold text-[#6b0f1a] leading-snug">Vale por un Chupachups*</h4>
+              <p class="font-lora text-xs text-[#4a393d] mt-1">
+                Para satisfacer momentos muy dulces en la conquista romana nocturna.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#d4af37]/40">
+              <button onclick="redeemCoupon('voucherChupa', '🍭 CANJEADO POR MARCOS')" class="w-full py-1.5 px-3 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#aa8214] text-[#12080a] font-cinzel text-xs font-bold hover:brightness-110 active:scale-95 transition-all shadow">
+                CANJEAR VALE 🍭
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="text-center text-[11px] font-cinzel text-[#d4af37]/50 pt-4 border-t border-[#d4af37]/15">
+      <p>EMERITA AUGUSTA · CONVOCATORIA IMPERIAL PARA MARCOS PRATO</p>
+      <p class="font-lora text-[10px] text-[#d4af37]/40 mt-1">Una sorpresa de cumpleaños inolvidable · Mayo 2026</p>
+    </footer>
+
+  </main>
+
+  <!-- Modal for Map Previews -->
+  <div id="imageModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex flex-col items-center justify-center p-3" onclick="closeModal()">
+    <div class="relative w-full max-w-xl max-h-[92vh] flex flex-col bg-[#180608] rounded-2xl border-2 border-[#d4af37] shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="p-3 bg-[#2d090f] border-b border-[#d4af37]/40 flex items-center justify-between">
+        <h4 id="modalTitle" class="font-cinzel text-sm font-bold text-[#f3e5ab]">Vista de Imagen</h4>
+        <button onclick="closeModal()" class="px-2 py-1 rounded bg-[#6b0f1a] text-[#fbf7ee] text-xs font-cinzel font-bold">Cerrar ✕</button>
+      </div>
+      <div class="overflow-auto max-h-[75vh] p-2 flex items-center justify-center bg-black/40">
+        <img id="modalImg" src="" alt="Imagen ampliada" class="max-w-full max-h-[72vh] object-contain rounded-lg">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function triggerConfetti() {
+      var goldPalette = ['#d4af37', '#f3e5ab', '#6b0f1a', '#ffffff', '#aa8214'];
+      
+      confetti({
+        particleCount: 90,
+        spread: 90,
+        origin: { y: 0.6 },
+        colors: goldPalette,
+        scalar: 1.2
+      });
+
+      setTimeout(function() {
+        confetti({
+          particleCount: 50,
+          angle: 60,
+          spread: 70,
+          origin: { x: 0.1, y: 0.65 },
+          colors: goldPalette
+        });
+      }, 200);
+
+      setTimeout(function() {
+        confetti({
+          particleCount: 50,
+          angle: 120,
+          spread: 70,
+          origin: { x: 0.9, y: 0.65 },
+          colors: goldPalette
+        });
+      }, 400);
+    }
+
+    function revealDestination() {
+      triggerConfetti();
+
+      var container = document.getElementById('revealContainer');
+      container.classList.remove('hidden');
+      setTimeout(function() {
+        container.classList.remove('opacity-0');
+        container.classList.add('opacity-100');
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+
+      var revealSection = document.getElementById('revealSection');
+      if (revealSection) {
+        revealSection.style.display = 'none';
+      }
+    }
+
+    function openModal(src, title) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').classList.add('hidden');
+    }
+
+    function toggleLuggageAccordion() {
+      var content = document.getElementById('luggageContent');
+      var icon = document.getElementById('accordionIcon');
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+        icon.innerText = '▲';
+      } else {
+        content.style.display = 'none';
+        icon.innerText = '▼';
+      }
+    }
+
+    function toggleCheckItem(el) {
+      var cb = el.querySelector('input[type="checkbox"]');
+      if (cb) {
+        cb.checked = !cb.checked;
+      }
+    }
+
+    function redeemCoupon(id, text) {
+      var card = document.getElementById(id);
+      if (card) {
+        card.querySelector('div:last-child').innerHTML = '<span class="w-full block text-center py-1.5 rounded-lg bg-[#6b0f1a] text-[#f3e5ab] font-cinzel text-xs font-bold tracking-wider shadow">✓ ' + text + '</span>';
+      }
+      confetti({
+        particleCount: 40,
+        spread: 60,
+        origin: { y: 0.8 },
+        colors: ['#d4af37', '#6b0f1a', '#ffffff']
+      });
+    }
+
+    // Scroll reveal observer for clues
+    document.addEventListener('DOMContentLoaded', function() {
+      var revealElements = document.querySelectorAll('.scroll-reveal');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -30px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        revealElements.forEach(function(el) {
+          el.classList.add('is-revealed');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
