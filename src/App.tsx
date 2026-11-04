@@ -254,7 +254,7 @@ export default function App() {
       <div className="w-full max-w-md flex items-center justify-between px-3 py-2 text-xs font-cinzel text-[#d4af37] border-b border-[#d4af37]/20 mb-3">
         <span className="flex items-center gap-1.5 tracking-widest uppercase">
           <span className="w-2 h-2 rounded-full bg-[#d4af37]/80 inline-block"></span>
-          ANNO MMXXVI · EMERITA
+          ANNO MMXXVII
         </span>
         <div className="flex items-center gap-2">
           <button
@@ -309,7 +309,7 @@ export default function App() {
                 S·P·Q·R
               </span>
               <span className="text-[9px] text-[#f3e5ab] tracking-tighter uppercase font-cinzel">
-                AVG·EMERITA
+                AVG
               </span>
             </div>
 
@@ -517,7 +517,7 @@ export default function App() {
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">
             <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
-              PISTA IV · LA INFLUENCER CAMPECHANA
+              PISTA IV · LA INFLUENCER EXTREMEÑA
             </span>
 
             {completedClues[4] ? (
@@ -530,7 +530,7 @@ export default function App() {
           </div>
 
           <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
-            Una conocida influencer con nombre de postre, amante de la vida de pueblo, ha visitado este lugar en más de una ocasión... y siempre acaba volviendo encantada.
+            Una conocida influencer con nombre de postre, que vive en un pueblo, ha visitado este lugar en más de una ocasión... y siempre acaba volviendo.
           </p>
         </div>
       </div>
@@ -1072,9 +1072,9 @@ export default function App() {
 
         {/* Footer info */}
         <footer className="text-center text-[11px] font-cinzel text-[#d4af37]/50 pt-4 border-t border-[#d4af37]/15">
-          <p>EMERITA AUGUSTA · CONVOCATORIA IMPERIAL PARA MARCOS PRATO</p>
+          <p>CONVOCATORIA IMPERIAL PARA MARCOS PRATO</p>
           <p className="font-lora text-[10px] text-[#d4af37]/40 mt-1">
-            Una sorpresa de cumpleaños inolvidable · Mayo 2026
+            Una sorpresa de cumpleaños inolvidable · Susana Castillo 2026
           </p>
         </footer>
       </main>
