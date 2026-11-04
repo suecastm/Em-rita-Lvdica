@@ -350,129 +350,194 @@ export default function App() {
           </div>
         </section>
 
-        {/* ========================================================
-            2. CLUES SECTION: 3 SEQUENTIAL CARDS (Scroll Reveal)
-           ======================================================== */}
-        <section className="flex flex-col gap-3">
-          <div className="flex items-center justify-between px-1">
-            <h2 className="font-cinzel text-xs uppercase tracking-widest text-[#d4af37] font-semibold flex items-center gap-1.5">
-              <Scroll size={14} />
-              Pistas del Enigma Imperial
-            </h2>
-            <span className="text-[11px] font-cinzel text-[#d4af37]/70">
-              Toca para marcar
+    {/* ========================================================
+    2. CLUES SECTION: 4 SEQUENTIAL CARDS (Scroll Reveal)
+   ======================================================== */}
+<section className="flex flex-col gap-3">
+  <div className="flex items-center justify-between px-1">
+    <h2 className="font-cinzel text-xs uppercase tracking-widest text-[#d4af37] font-semibold flex items-center gap-1.5">
+      <Scroll size={14} />
+      Pistas del Enigma Imperial
+    </h2>
+
+    {/* <span className="text-[11px] font-cinzel text-[#d4af37]/70">
+      Toca para marcar
+    </span> */}
+  </div>
+
+  {/* CLUE 1 */}
+  <ScrollRevealClue delay={100}>
+    <div 
+      onClick={() => toggleClue(1)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { 
+        if (e.key === 'Enter' || e.key === ' ') toggleClue(1); 
+      }}
+      className={`cursor-pointer group relative bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border transition-all duration-300 ${
+        completedClues[1] 
+          ? 'border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.25)]' 
+          : 'border-[#d4af37]/30 hover:border-[#d4af37]/70'
+      }`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
+          🏛️
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between">
+            <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
+              PISTA I · LA ERA DORADA
             </span>
+
+            {completedClues[1] ? (
+              <CheckCircle2 size={16} className="text-[#d4af37]" />
+            ) : (
+              <span className="text-[10px] text-[#f3e5ab]/60 font-cinzel">
+                Pista 1/4
+              </span>
+            )}
           </div>
 
-          {/* CLUE 1 */}
-          <ScrollRevealClue delay={100}>
-            <div 
-              onClick={() => toggleClue(1)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleClue(1); }}
-              className={`cursor-pointer group relative bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border transition-all duration-300 ${
-                completedClues[1] 
-                  ? 'border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.25)]' 
-                  : 'border-[#d4af37]/30 hover:border-[#d4af37]/70'
-              }`}
-            >
-              <div className="flex items-start gap-3">
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
-                  🏛️
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
-                      PISTA I · LA ERA DORADA
-                    </span>
-                    {completedClues[1] ? (
-                      <CheckCircle2 size={16} className="text-[#d4af37]" />
-                    ) : (
-                      <span className="text-[10px] text-[#f3e5ab]/60 font-cinzel">Pista 1/3</span>
-                    )}
-                  </div>
-                  <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
-                    "Viajaremos más de 2.000 años atrás en el tiempo, a una época de gladiadores, aurigas y césares."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollRevealClue>
+          <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
+            Viajaremos más de 2.000 años atrás en el tiempo, a una época de gladiadores, aurigas y césares.
+          </p>
+        </div>
+      </div>
+    </div>
+  </ScrollRevealClue>
 
-          {/* CLUE 2 */}
-          <ScrollRevealClue delay={250}>
-            <div 
-              onClick={() => toggleClue(2)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleClue(2); }}
-              className={`cursor-pointer group relative bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border transition-all duration-300 ${
-                completedClues[2] 
-                  ? 'border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.25)]' 
-                  : 'border-[#d4af37]/30 hover:border-[#d4af37]/70'
-              }`}
-            >
-              <div className="flex items-start gap-3">
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
-                  🍷
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
-                      PISTA II · LA FIESTA VIVA
-                    </span>
-                    {completedClues[2] ? (
-                      <CheckCircle2 size={16} className="text-[#d4af37]" />
-                    ) : (
-                      <span className="text-[10px] text-[#f3e5ab]/60 font-cinzel">Pista 2/3</span>
-                    )}
-                  </div>
-                  <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
-                    "No es un museo... es una ciudad entera vestida de época donde la gente vive, bebe y celebra como verdaderos romanos."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollRevealClue>
+  {/* CLUE 2 */}
+  <ScrollRevealClue delay={250}>
+    <div 
+      onClick={() => toggleClue(2)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { 
+        if (e.key === 'Enter' || e.key === ' ') toggleClue(2); 
+      }}
+      className={`cursor-pointer group relative bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border transition-all duration-300 ${
+        completedClues[2] 
+          ? 'border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.25)]' 
+          : 'border-[#d4af37]/30 hover:border-[#d4af37]/70'
+      }`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
+          🍷
+        </div>
 
-          {/* CLUE 3 */}
-          <ScrollRevealClue delay={400}>
-            <div 
-              onClick={() => toggleClue(3)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleClue(3); }}
-              className={`cursor-pointer group relative bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border transition-all duration-300 ${
-                completedClues[3] 
-                  ? 'border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.25)]' 
-                  : 'border-[#d4af37]/30 hover:border-[#d4af37]/70'
-              }`}
-            >
-              <div className="flex items-start gap-3">
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
-                  🥓
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
-                      PISTA III · EL BANQUETE DEL CÉSAR
-                    </span>
-                    {completedClues[3] ? (
-                      <CheckCircle2 size={16} className="text-[#d4af37]" />
-                    ) : (
-                      <span className="text-[10px] text-[#f3e5ab]/60 font-cinzel">Pista 3/3</span>
-                    )}
-                  </div>
-                  <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
-                    "Tierra de majestuosos acueductos, templos de diosas y el mejor tapeo extremeño."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollRevealClue>
-        </section>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between">
+            <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
+              PISTA II · LA FIESTA VIVA
+            </span>
 
+            {completedClues[2] ? (
+              <CheckCircle2 size={16} className="text-[#d4af37]" />
+            ) : (
+              <span className="text-[10px] text-[#f3e5ab]/60 font-cinzel">
+                Pista 2/4
+              </span>
+            )}
+          </div>
+
+          <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
+            No es un museo... es una ciudad entera vestida de época donde la gente vive, bebe y celebra como verdaderos romanos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </ScrollRevealClue>
+
+  {/* CLUE 3 */}
+  <ScrollRevealClue delay={400}>
+    <div 
+      onClick={() => toggleClue(3)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { 
+        if (e.key === 'Enter' || e.key === ' ') toggleClue(3); 
+      }}
+      className={`cursor-pointer group relative bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border transition-all duration-300 ${
+        completedClues[3] 
+          ? 'border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.25)]' 
+          : 'border-[#d4af37]/30 hover:border-[#d4af37]/70'
+      }`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
+          🥓
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between">
+            <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
+              PISTA III · EL BANQUETE DEL CÉSAR
+            </span>
+
+            {completedClues[3] ? (
+              <CheckCircle2 size={16} className="text-[#d4af37]" />
+            ) : (
+              <span className="text-[10px] text-[#f3e5ab]/60 font-cinzel">
+                Pista 3/4
+              </span>
+            )}
+          </div>
+
+          <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
+            Tierra de majestuosos acueductos, templos de diosas y el mejor tapeo extremeño.
+          </p>
+        </div>
+      </div>
+    </div>
+  </ScrollRevealClue>
+
+  {/* CLUE 4 */}
+  <ScrollRevealClue delay={550}>
+    <div 
+      onClick={() => toggleClue(4)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { 
+        if (e.key === 'Enter' || e.key === ' ') toggleClue(4); 
+      }}
+      className={`cursor-pointer group relative bg-gradient-to-r from-[#21090d] to-[#180608] rounded-xl p-4 border transition-all duration-300 ${
+        completedClues[4] 
+          ? 'border-[#d4af37] shadow-[0_0_15px_rgba(212,175,55,0.25)]' 
+          : 'border-[#d4af37]/30 hover:border-[#d4af37]/70'
+      }`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="shrink-0 w-10 h-10 rounded-lg bg-[#3f0910] border border-[#d4af37]/60 flex items-center justify-center text-lg shadow-inner">
+          📱
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between">
+            <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider">
+              PISTA IV · LA INFLUENCER CAMPECHANA
+            </span>
+
+            {completedClues[4] ? (
+              <CheckCircle2 size={16} className="text-[#d4af37]" />
+            ) : (
+              <span className="text-[10px] text-[#f3e5ab]/60 font-cinzel">
+                Pista 4/4
+              </span>
+            )}
+          </div>
+
+          <p className="font-lora text-sm text-[#fbf7ee] mt-1 leading-snug">
+            Una conocida influencer con nombre de postre, amante de la vida de pueblo, ha visitado este lugar en más de una ocasión... y siempre acaba volviendo encantada.
+          </p>
+        </div>
+      </div>
+    </div>
+  </ScrollRevealClue>
+</section>
+        
         {/* ========================================================
             3. REVEAL BUTTON & INTERACTION (Disappears after reveal)
            ======================================================== */}
@@ -622,7 +687,7 @@ export default function App() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/40 mb-2">
                 <Heart size={13} className="text-[#d4af37] fill-[#d4af37]" />
                 <span className="text-[10px] font-cinzel font-bold text-[#f3e5ab] tracking-widest uppercase">
-                  DECRETO DE LA DIOSA VENUS
+                  DECRETO DE LA DIOSA AFRODITA
                 </span>
                 <Heart size={13} className="text-[#d4af37] fill-[#d4af37]" />
               </div>
@@ -635,16 +700,16 @@ export default function App() {
             <div className="relative p-4 rounded-xl bg-[#120407]/70 border border-[#d4af37]/30 shadow-inner">
               <span className="absolute top-2 left-2 text-[#d4af37]/40 font-serif text-3xl leading-none">“</span>
               <p className="font-lora italic text-sm sm:text-[15px] text-[#fbf7ee] leading-relaxed text-center px-3 pt-1">
-                Por decreto de la Diosa Venus y con la bendición de Júpiter, este viaje no solo es para conquistar una ciudad, sino para celebrar tu cumpleaños y festejar que tras todo este tiempo sigo eligiéndote como mi gladiador favorito.
+                Por decreto de la Diosa Afrodita y con la bendición de Júpiter, este viaje no solo es para conquistar una ciudad, sino para celebrar tu cumpleaños y festejar que tras todo este tiempo sigo eligiéndote como mi gladiador favorito.
               </p>
               <span className="absolute bottom-1 right-2 text-[#d4af37]/40 font-serif text-3xl leading-none">”</span>
 
               <div className="mt-3 text-center border-t border-[#d4af37]/20 pt-2.5">
                 <span className="font-cinzel text-xs font-bold text-[#d4af37] tracking-wider block">
-                  ¡Feliz Cumpleaños mi amor! ❤️
+                  ¡Feliz Cumpleaños bebé! ❤️
                 </span>
                 <span className="text-[11px] font-lora text-[#f3e5ab]/70 italic mt-0.5 block">
-                  Tu compañera de viaje en el tiempo
+                  Tu compañera de viaje en los tiempos pasado, presente y futuro
                 </span>
               </div>
             </div>
@@ -661,7 +726,7 @@ export default function App() {
                 <span>⚔️</span>
               </h3>
               <p className="font-lora text-xs sm:text-sm text-[#fbf7ee]/80 mt-1">
-                Estratégicamente ubicado para recorrer todos los foros y monumentos
+                Estratégicamente ubicado para recorrer todo el recinto, monumentos y actividades a pie
               </p>
             </div>
 
@@ -670,7 +735,7 @@ export default function App() {
               <div className="p-3 sm:p-4 bg-gradient-to-r from-[#3f0910] to-[#25060a] border-b border-[#d4af37]/40 flex items-center justify-between">
                 <div>
                   <span className="font-cinzel text-[11px] text-[#d4af37] font-semibold tracking-wider block">
-                    CARD 1 · BASE DE OPERACIONES
+                    BASE DE OPERACIONES
                   </span>
                   <h4 className="font-cinzel text-base font-bold text-white flex items-center gap-1.5">
                     <Hotel size={16} className="text-[#d4af37]" />
@@ -687,8 +752,8 @@ export default function App() {
                 className="relative cursor-pointer group overflow-hidden bg-black aspect-video max-h-64 border-b border-[#d4af37]/30"
                 onClick={() => setActiveModalImage({
                   src: '/assets/aistudio/image_11a4be2e.png',
-                  title: 'Hotel Velada Mérida · Piscina y Terraza',
-                  subtitle: 'Avda. Reina Sofía, s/n, Mérida · 4 estrellas con piscina exterior, terraza iluminada y vistas'
+                  title: 'Hotel Velada Mérida · Parking y vistas',
+                  subtitle: 'Avda. Reina Sofía, s/n, Mérida · 4 estrellas con parking, terraza, piscina y vistas'
                 })}
               >
                 <img
@@ -700,11 +765,11 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex items-end justify-between p-3">
                   <div className="text-white text-xs">
                     <span className="font-semibold block text-[#f3e5ab]">Hotel Velada Mérida</span>
-                    <span className="text-[11px] text-gray-300">Piscina, terraza iluminada y comodidades</span>
+                    <span className="text-[11px] text-gray-300">Con parking exclusivo clientes, piscina y comodidades</span>
                   </div>
                   <div className="bg-[#6b0f1a]/90 text-[#f3e5ab] text-[11px] font-cinzel px-2.5 py-1 rounded flex items-center gap-1 border border-[#d4af37]">
                     <ZoomIn size={12} />
-                    <span>Ver foto</span>
+                    {/* <span>Ver foto</span> */}
                   </div>
                 </div>
               </div>
@@ -732,7 +797,7 @@ export default function App() {
                     </div>
                     <div className="bg-[#6b0f1a]/90 text-[#f3e5ab] text-[11px] font-cinzel px-2 py-1 rounded flex items-center gap-1 border border-[#d4af37]">
                       <ZoomIn size={12} />
-                      <span>Ampliar</span>
+                      {/* <span>Ampliar</span> */}
                     </div>
                   </div>
                 </div>
@@ -750,7 +815,7 @@ export default function App() {
                   <div className="flex items-start gap-2.5 text-[#fbf7ee]">
                     <span className="text-base leading-none shrink-0">📍</span>
                     <span className="leading-snug">
-                      <strong className="text-[#f3e5ab] font-cinzel">Chincheta / Pin rojo:</strong> Localización del <strong className="text-white">Hotel Velada Mérida</strong>, situado a pasos del perímetro histórico.
+                      <strong className="text-[#f3e5ab] font-cinzel">Pin rojo:</strong> Localización del <strong className="text-white">Hotel Velada Mérida</strong>, situado a pocos pasos de la zona de actividades.
                     </span>
                   </div>
                 </div>
@@ -805,7 +870,7 @@ export default function App() {
             {luggageOpen && (
               <div className="p-4 space-y-2.5 bg-[#170609]">
                 <p className="text-xs font-lora text-[#fbf7ee]/70 italic mb-2">
-                  Marca los pertrechos según vayas haciendo la maleta:
+                  Recuerda no olvidarte nada en la maleta:
                 </p>
 
                 {/* Item 1: Túnica / Toga */}
@@ -824,10 +889,10 @@ export default function App() {
                   </div>
                   <div>
                     <span className="font-cinzel text-xs font-bold text-[#f3e5ab] block">
-                      Túnica / Toga romana
+                      Túnica romana
                     </span>
                     <span className="font-lora text-xs text-[#fbf7ee]/80">
-                      (o ropa cómoda en tonos neutros si preferís improvisar allí)
+                      O, a falta de ésta, ropa en tonos beige, marrón y blancos
                     </span>
                   </div>
                 </div>
@@ -899,7 +964,7 @@ export default function App() {
                       Muchas ganas de pasarlo bien
                     </span>
                     <span className="font-lora text-xs text-[#fbf7ee]/80">
-                      Espíritu gladiador y muchas risas juntos.
+                      Y dar súper mimos a tu bebita!
                     </span>
                   </div>
                 </div>
@@ -919,10 +984,10 @@ export default function App() {
                 </span>
               </div>
               <h3 className="font-cinzel text-lg font-bold text-[#f3e5ab] tracking-wider">
-                TESSERA HOSPITALIS
+                VALES ROMÁNTICOS
               </h3>
               <p className="font-lora text-xs text-[#fbf7ee]/75">
-                Vales románticos canjeables durante nuestra expedición a Mérida
+                Canjeables únicamente durante nuestra expedición a Mérida
               </p>
             </div>
 
@@ -1057,7 +1122,7 @@ export default function App() {
 
             {/* Modal Footer with Direct Link / Close */}
             <div className="p-2.5 bg-[#25060a] border-t border-[#d4af37]/30 flex items-center justify-between text-xs font-cinzel">
-              <span className="text-[#d4af37]/70 text-[11px]">Usa dos dedos o rueda para explorar</span>
+              {/* <span className="text-[#d4af37]/70 text-[11px]">Usa dos dedos o rueda para explorar</span> */}
               <button
                 onClick={() => setActiveModalImage(null)}
                 className="px-3 py-1 rounded bg-[#6b0f1a] text-[#fbf7ee] font-bold hover:bg-[#801220]"
