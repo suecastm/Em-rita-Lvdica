@@ -686,13 +686,13 @@ export default function App() {
               <div 
                 className="relative cursor-pointer group overflow-hidden bg-black aspect-video max-h-64 border-b border-[#d4af37]/30"
                 onClick={() => setActiveModalImage({
-                  src: '/public/assets/aistudio/image_11a4be2e.png',
+                  src: '/assets/aistudio/image_11a4be2e.png',
                   title: 'Hotel Velada Mérida · Piscina y Terraza',
                   subtitle: 'Avda. Reina Sofía, s/n, Mérida · 4 estrellas con piscina exterior, terraza iluminada y vistas'
                 })}
               >
                 <img
-                  src="/public/assets/aistudio/image_11a4be2e.png"
+                  src="/assets/aistudio/image_11a4be2e.png"
                   alt="Hotel Velada Mérida con piscina exterior y terraza iluminada"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -713,14 +713,14 @@ export default function App() {
               <div 
                 className="relative cursor-pointer group overflow-hidden bg-[#12080a] p-2"
                 onClick={() => setActiveModalImage({
-                  src: '/public/assets/aistudio/image_0a54ec44.png',
+                  src: '/assets/aistudio/image_0a54ec44.png',
                   title: 'Plano del Perímetro Emerita Lvdica y Hotel Velada',
                   subtitle: 'Zona verde: Perímetro de actividades · Pin rojo: Ubicación del Hotel Velada Mérida'
                 })}
               >
                 <div className="relative rounded-xl overflow-hidden border border-[#d4af37]/40 bg-black">
                   <img
-                    src="/public/assets/aistudio/image_0a54ec44.png"
+                    src="/assets/aistudio/image_0a54ec44.png"
                     alt="Plano del perímetro de Emerita Lvdica con pin rojo de Hotel Velada Mérida"
                     referrerPolicy="no-referrer"
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
